@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ProdutoTableViewController: UITableViewController {
     
@@ -13,6 +14,14 @@ class ProdutoTableViewController: UITableViewController {
     var produtos:[Produto] = []
     
     override func viewDidAppear(_ animated: Bool) {
+
+        /*
+        guard let access_token = Auth().token else {
+           return
+        }
+        */
+        
+        // print("Access token salvo no dispositivo: \(access_token)")
         
         produtoManager.getProds { [weak self] produtosResult in
             switch produtosResult {
@@ -32,6 +41,7 @@ class ProdutoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
     }
@@ -151,5 +161,19 @@ class ProdutoTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func login(_ sender: Any) {
+        
+        Auth().autenticar(username: "rrgayer", password: "xxxxxx") { [weak self] response in
+            switch response {
+            case .failure:
+                // print("Error da chamada da API")
+                ErrorPresenter.showError(message: "Erro na autenticação", on: self)
+            case .success(let token):
+                Auth().token = token.access_token
+                print(token.access_token)
+            }
+        }
+
+    }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ProdutoDetalheViewController: UIViewController {
     
@@ -14,6 +15,10 @@ class ProdutoDetalheViewController: UIViewController {
     let produtoManager:ProdutoManager = ProdutoManager()
     var produto:Produto?
     
+    
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var ProdutoIdLabel: UILabel!
     @IBOutlet weak var CategoriaName: UITextField!
     @IBOutlet weak var ProdutoNameEdit: UITextField!
@@ -33,14 +38,19 @@ class ProdutoDetalheViewController: UIViewController {
             }
           }
         }
-        
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        progressView.progress = 0
+        
+        downloadImage(progressCompletion: { [unowned self] percent in
+            self.progressView.setProgress(percent, animated: true)
+          }) {response in
+            print(response.debugDescription)
+        }
+        
         ProdutoIdLabel.text = "\(produtoId)"
         
         produtoManager.getProdId(ProdutoId: produtoId) { [weak self] produtosResult in
@@ -57,7 +67,41 @@ class ProdutoDetalheViewController: UIViewController {
               }
             }
           }
+    }
+    
+    func downloadImage(progressCompletion: @escaping (_ percent: Float) -> Void, completion: @escaping (Void?) -> Void) {
         
+        var id = random(5)
+        
+        if id < 1 {
+            id = 1
+        }
+        
+        print("Número \(id)")
+        
+        let url = "http://10.0.1.67:8080/image/download/\(id)"
+        
+        AF.download(url)
+            .downloadProgress {progress in
+                progressCompletion(Float(progress.fractionCompleted))
+              }
+            .responseData { response in
+            switch response.result {
+            case .success(let image):
+                print("Download realizado")
+                guard let imagem = UIImage(data: image) else {
+                    print("Erro na conversão da imagens")
+                    return
+                }
+                self.imageView.image = imagem
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func random(_ n:Int) -> Int {
+        return Int(arc4random_uniform(UInt32(n)))
     }
     
 }
