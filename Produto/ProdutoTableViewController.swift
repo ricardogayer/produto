@@ -163,7 +163,9 @@ class ProdutoTableViewController: UITableViewController {
     
     @IBAction func login(_ sender: Any) {
         
-        Auth().autenticar(username: "rrgayer", password: "xxxxxx") { [weak self] response in
+        // Auth().token = "abcdef"
+        
+        Auth().autenticar(username: "rrgayer", password: "pacuja") { [weak self] response in
             switch response {
             case .failure:
                 // print("Error da chamada da API")
@@ -172,6 +174,7 @@ class ProdutoTableViewController: UITableViewController {
                 Auth().token = token.access_token
                 print(token.access_token)
             }
+   
         }
 
     }

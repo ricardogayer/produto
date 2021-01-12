@@ -79,6 +79,8 @@ class ProdutoDetalheViewController: UIViewController {
         
         print("Número \(id)")
         
+        /*
+          
         let url = "http://10.0.1.67:8080/image/download/\(id)"
         
         AF.download(url)
@@ -98,6 +100,28 @@ class ProdutoDetalheViewController: UIViewController {
                 print(error)
             }
         }
+        */
+        
+        
+        
+        NetworkClient.request(ProdutoRouter.download(id))
+            .downloadProgress {progress in
+                progressCompletion(Float(progress.fractionCompleted))
+              }
+            .responseData { response in
+            switch response.result {
+            case .success(let image):
+                print("Download realizado")
+                guard let imagem = UIImage(data: image) else {
+                    print("Erro na conversão da imagens")
+                    return
+                }
+                self.imageView.image = imagem
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     func random(_ n:Int) -> Int {

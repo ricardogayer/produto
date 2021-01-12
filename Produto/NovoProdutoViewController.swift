@@ -58,9 +58,9 @@ class NovoProdutoViewController: UIViewController {
         
         // TO-DO Completion p/ zerar o upload (hide)
         
-        AF.upload(multipartFormData: { multipartFormData in
-          multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
-          }, to: "http://10.0.1.67:8080/image/747")
+        NetworkClient.upload(multipartFormData: {multipartFormData in
+            multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
+        }, with: ProdutoRouter.upload(747))
           .uploadProgress { progress in
              progressCompletion(Float(progress.fractionCompleted))
           }
@@ -72,6 +72,25 @@ class NovoProdutoViewController: UIViewController {
               print(response.debugDescription)
             }
         }
+        
+        /*
+         AF.upload(multipartFormData: { multipartFormData in
+           multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
+           }, to: "http://10.0.1.67:8080/image/747")
+           .uploadProgress { progress in
+              progressCompletion(Float(progress.fractionCompleted))
+           }
+          .response{ response in
+             switch response.result {
+             case .failure(let error):
+               print("Error uploading file: \(error)")
+             case .success(let response):
+               print(response.debugDescription)
+             }
+         }
+         
+         
+         */
         
         
         

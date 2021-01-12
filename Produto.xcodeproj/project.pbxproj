@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E638C53525A5E53800422B2B /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638C53425A5E53800422B2B /* ErrorPresenter.swift */; };
+		E65618E725AD19F0002A739F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65618E625AD19F0002A739F /* NetworkClient.swift */; };
+		E65618EA25AD1A57002A739F /* ProdutoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65618E925AD1A57002A739F /* ProdutoRouter.swift */; };
+		E65618ED25AD49C3002A739F /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65618EC25AD49C3002A739F /* LoginRouter.swift */; };
 		E67D960D25A699FC001695D4 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67D960C25A699FC001695D4 /* Token.swift */; };
 		E67D961025A6A33E001695D4 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67D960F25A6A33E001695D4 /* Auth.swift */; };
 		E698274225A3DA86009B8A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698274125A3DA86009B8A1B /* AppDelegate.swift */; };
@@ -25,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		E638C53425A5E53800422B2B /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
+		E65618E625AD19F0002A739F /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		E65618E925AD1A57002A739F /* ProdutoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoRouter.swift; sourceTree = "<group>"; };
+		E65618EC25AD49C3002A739F /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		E67D960C25A699FC001695D4 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		E67D960F25A6A33E001695D4 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		E698273E25A3DA86009B8A1B /* Produto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Produto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,9 @@
 				E638C53425A5E53800422B2B /* ErrorPresenter.swift */,
 				E67D960C25A699FC001695D4 /* Token.swift */,
 				E67D960F25A6A33E001695D4 /* Auth.swift */,
+				E65618E625AD19F0002A739F /* NetworkClient.swift */,
+				E65618E925AD1A57002A739F /* ProdutoRouter.swift */,
+				E65618EC25AD49C3002A739F /* LoginRouter.swift */,
 			);
 			path = Produto;
 			sourceTree = "<group>";
@@ -169,12 +178,15 @@
 				E67D960D25A699FC001695D4 /* Token.swift in Sources */,
 				E698275A25A3DAD5009B8A1B /* ProdutoManager.swift in Sources */,
 				E638C53525A5E53800422B2B /* ErrorPresenter.swift in Sources */,
+				E65618E725AD19F0002A739F /* NetworkClient.swift in Sources */,
 				E698275725A3DA9E009B8A1B /* Produto.swift in Sources */,
 				E698274225A3DA86009B8A1B /* AppDelegate.swift in Sources */,
 				E67D961025A6A33E001695D4 /* Auth.swift in Sources */,
 				E698277025A3E382009B8A1B /* ProdutoTableViewController.swift in Sources */,
+				E65618EA25AD1A57002A739F /* ProdutoRouter.swift in Sources */,
 				E698277325A3F008009B8A1B /* ProdutoDetalheViewController.swift in Sources */,
 				E698274425A3DA86009B8A1B /* SceneDelegate.swift in Sources */,
+				E65618ED25AD49C3002A739F /* LoginRouter.swift in Sources */,
 				E698277625A3FF59009B8A1B /* NovoProdutoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

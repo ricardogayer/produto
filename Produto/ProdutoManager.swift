@@ -9,7 +9,20 @@ import Foundation
 import Alamofire
 
 class ProdutoManager {
+
+    func getProds(completion: @escaping (Result<[Produto], Error>) -> Void) {
+        NetworkClient.request(ProdutoRouter.request).responseDecodable(of: [Produto].self) { response in
+            // print(response.result)
+            switch response.result {
+            case .success(let produto):
+                completion(.success(produto))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
+    /*
     func getProds(completion: @escaping (Result<[Produto], Error>) -> Void) {
         AF.request("http://10.0.1.67:8080/produtos").responseDecodable(of: [Produto].self) { response in
             // print(response.result)
@@ -21,7 +34,28 @@ class ProdutoManager {
             }
         }
     }
+    */
     
+    func getProdId (ProdutoId: Int, completion: @escaping (Result<Produto, Error>) -> Void) {
+        
+        let id:String = "\(ProdutoId)"
+        
+        print("Produto ID passado na solicitação \(id)")
+            
+        NetworkClient.request(ProdutoRouter.detalhe(id))
+            .validate(statusCode: 200...200)
+            .responseDecodable(of: Produto.self) { response in
+            print(response.debugDescription)
+            switch response.result {
+            case .success(let produto):
+                completion(.success(produto))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    /*
     func getProdId (ProdutoId: Int, completion: @escaping (Result<Produto, Error>) -> Void) {
         let id:Int = ProdutoId // + 1
         AF.request("http://10.0.1.67:8080/produtos/\(id)")
@@ -36,7 +70,27 @@ class ProdutoManager {
             }
         }
     }
+     */
+        
+    func updateProduto(_ produto: Produto, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        
+        print("Detalhe do produto id = \(produto.id ?? 0) e nome = \(produto.nome)")
+        
+        NetworkClient.request(ProdutoRouter.update(produto))
+            // .validate(statusCode: 200...200)
+            .response { response in
+                print(response.debugDescription)
+               switch response.result {
+                  case .success:
+                     completion(.success(()))
+                  case .failure(let error):
+                     completion(.failure(error))
+               }
+        }
+    }
     
+    /*
     func updateProduto(_ produto: Produto, completion: @escaping (Result<Void, Error>) -> Void) {
         AF.request("http://10.0.1.67:8080/produtos", method: .put, parameters: produto, encoder: JSONParameterEncoder.default)
             .validate(statusCode: 200...200)
@@ -49,6 +103,37 @@ class ProdutoManager {
                }
         }
     }
+    */
+    
+    /*
+     func updateProduto(_ produto: Produto, completion: @escaping (Result<Void, Error>) -> Void) {
+         AF.request("http://10.0.1.67:8080/produtos", method: .put, parameters: produto, encoder: JSONParameterEncoder.default)
+             .validate(statusCode: 200...200)
+             .response { response in
+                switch response.result {
+                   case .success:
+                      completion(.success(()))
+                   case .failure(let error):
+                      completion(.failure(error))
+                }
+         }
+     }
+     */
+    
+    func saveProduto(_ produto: Produto, completion: @escaping (Result<Void, Error>) -> Void) {
+        NetworkClient.request(ProdutoRouter.save(produto))
+          .validate(statusCode: 201...201)
+          .response { response in
+            switch response.result {
+               case .failure(let error):
+                  completion(.failure(error))
+               case .success:
+                  completion(.success(()))
+            }
+        }
+    }
+    
+    /*
     
     func saveProduto(_ produto: Produto, completion: @escaping (Result<Void, Error>) -> Void) {
         AF.request("http://10.0.1.67:8080/produtos", method: .post, parameters: produto, encoder: JSONParameterEncoder.default)
@@ -62,7 +147,26 @@ class ProdutoManager {
             }
         }
     }
+ 
+    */
         
+    func deleteProdutoById(_ id: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        let id = "\(id)"
+        
+        NetworkClient.request(ProdutoRouter.delete(id))
+           .response { response in
+                // print(response.result)
+              switch response.result {
+                 case .success:
+                    completion(.success(()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
+    /*
     func deleteProdutoById(_ id: Int, completion: @escaping (Result<Void, Error>) -> Void) {
         
         let url = "http://10.0.1.67:8080/produtos/\(id)"
@@ -79,5 +183,6 @@ class ProdutoManager {
                 }
             }
     }
+   */
     
 }
