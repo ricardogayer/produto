@@ -102,11 +102,19 @@
                                     <action selector="upload:" destination="QzM-l6-tXm" eventType="touchUpInside" id="g7V-gk-aNz"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sTX-2d-cYi">
+                                <rect key="frame" x="57" y="270" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Xh6-xw-5Rs"/>
+                                    <constraint firstAttribute="height" constant="300" id="w0H-Ge-rEi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GHn-0d-WWU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="g5u-l9-eGy" firstAttribute="centerX" secondItem="KzF-Aj-ved" secondAttribute="centerX" id="Ewa-M2-1Sg"/>
+                            <constraint firstItem="sTX-2d-cYi" firstAttribute="centerX" secondItem="KzF-Aj-ved" secondAttribute="centerX" id="Fit-Ua-y5w"/>
                             <constraint firstItem="XUc-Iz-rjD" firstAttribute="trailing" secondItem="g5u-l9-eGy" secondAttribute="trailing" id="LXH-H5-m9f"/>
                             <constraint firstItem="g5u-l9-eGy" firstAttribute="top" secondItem="sgd-C0-qbT" secondAttribute="bottom" constant="16" id="PQF-Tt-MM9"/>
                             <constraint firstItem="XUc-Iz-rjD" firstAttribute="centerX" secondItem="KzF-Aj-ved" secondAttribute="centerX" id="PUd-9h-b6k"/>
@@ -116,6 +124,7 @@
                             <constraint firstItem="sgd-C0-qbT" firstAttribute="top" secondItem="GHn-0d-WWU" secondAttribute="top" constant="16" id="ZzG-fo-oc2"/>
                             <constraint firstItem="g5u-l9-eGy" firstAttribute="leading" secondItem="GHn-0d-WWU" secondAttribute="leading" constant="16" id="bzT-qq-iJd"/>
                             <constraint firstItem="2W4-xi-jH1" firstAttribute="top" secondItem="g5u-l9-eGy" secondAttribute="bottom" constant="16" id="hUm-3Z-e8c"/>
+                            <constraint firstItem="sTX-2d-cYi" firstAttribute="top" secondItem="XUc-Iz-rjD" secondAttribute="bottom" constant="16" id="iCq-KX-vuN"/>
                             <constraint firstItem="sgd-C0-qbT" firstAttribute="centerX" secondItem="KzF-Aj-ved" secondAttribute="centerX" id="tpV-bS-9T0"/>
                         </constraints>
                     </view>
@@ -129,6 +138,7 @@
                     <connections>
                         <outlet property="ProdutoCategoria" destination="g5u-l9-eGy" id="FQ0-Pd-by6"/>
                         <outlet property="ProdutoNome" destination="sgd-C0-qbT" id="mL4-ML-DXh"/>
+                        <outlet property="imageView" destination="sTX-2d-cYi" id="kfi-i6-Nt8"/>
                         <outlet property="progressView" destination="XUc-Iz-rjD" id="KHS-0W-zal"/>
                     </connections>
                 </viewController>

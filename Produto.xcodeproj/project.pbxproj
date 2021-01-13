@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E627C01A25AE8DF200966133 /* wikipedia.org.der in Resources */ = {isa = PBXBuildFile; fileRef = E627C01825AE8DF200966133 /* wikipedia.org.der */; };
+		E627C01B25AE8DF200966133 /* imagga.com.der in Resources */ = {isa = PBXBuildFile; fileRef = E627C01925AE8DF200966133 /* imagga.com.der */; };
+		E627C01E25AE8FAB00966133 /* WikiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E627C01D25AE8FAB00966133 /* WikiRouter.swift */; };
 		E638C53525A5E53800422B2B /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638C53425A5E53800422B2B /* ErrorPresenter.swift */; };
 		E65618E725AD19F0002A739F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65618E625AD19F0002A739F /* NetworkClient.swift */; };
 		E65618EA25AD1A57002A739F /* ProdutoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65618E925AD1A57002A739F /* ProdutoRouter.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E627C01825AE8DF200966133 /* wikipedia.org.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = wikipedia.org.der; path = ../../../wikipedia.org.der; sourceTree = "<group>"; };
+		E627C01925AE8DF200966133 /* imagga.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = imagga.com.der; path = ../../../imagga.com.der; sourceTree = "<group>"; };
+		E627C01D25AE8FAB00966133 /* WikiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiRouter.swift; sourceTree = "<group>"; };
 		E638C53425A5E53800422B2B /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		E65618E625AD19F0002A739F /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E65618E925AD1A57002A739F /* ProdutoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoRouter.swift; sourceTree = "<group>"; };
@@ -59,9 +65,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E627C01325AE8D5700966133 /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				E627C01925AE8DF200966133 /* imagga.com.der */,
+				E627C01825AE8DF200966133 /* wikipedia.org.der */,
+			);
+			path = Certificates;
+			sourceTree = "<group>";
+		};
 		E698273525A3DA86009B8A1B = {
 			isa = PBXGroup;
 			children = (
+				E627C01325AE8D5700966133 /* Certificates */,
 				E698274025A3DA86009B8A1B /* Produto */,
 				E698273F25A3DA86009B8A1B /* Products */,
 			);
@@ -95,6 +111,7 @@
 				E65618E625AD19F0002A739F /* NetworkClient.swift */,
 				E65618E925AD1A57002A739F /* ProdutoRouter.swift */,
 				E65618EC25AD49C3002A739F /* LoginRouter.swift */,
+				E627C01D25AE8FAB00966133 /* WikiRouter.swift */,
 			);
 			path = Produto;
 			sourceTree = "<group>";
@@ -164,7 +181,9 @@
 			files = (
 				E698274E25A3DA87009B8A1B /* LaunchScreen.storyboard in Resources */,
 				E698274B25A3DA87009B8A1B /* Assets.xcassets in Resources */,
+				E627C01B25AE8DF200966133 /* imagga.com.der in Resources */,
 				E698274925A3DA86009B8A1B /* Main.storyboard in Resources */,
+				E627C01A25AE8DF200966133 /* wikipedia.org.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +196,7 @@
 			files = (
 				E67D960D25A699FC001695D4 /* Token.swift in Sources */,
 				E698275A25A3DAD5009B8A1B /* ProdutoManager.swift in Sources */,
+				E627C01E25AE8FAB00966133 /* WikiRouter.swift in Sources */,
 				E638C53525A5E53800422B2B /* ErrorPresenter.swift in Sources */,
 				E65618E725AD19F0002A739F /* NetworkClient.swift in Sources */,
 				E698275725A3DA9E009B8A1B /* Produto.swift in Sources */,

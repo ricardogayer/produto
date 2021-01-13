@@ -37,6 +37,7 @@ class ProdutoTableViewController: UITableViewController {
                 }
             }
         }
+        
     }
     
     override func viewDidLoad() {
