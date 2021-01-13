@@ -11,6 +11,21 @@ import Alamofire
 
 struct NetworkClient {
     
+    struct NetworkClientRetrier: RequestInterceptor {
+      
+      func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        if let response = request.task?.response as? HTTPURLResponse, response.statusCode == 403 {
+            print("Retry............")
+          completion(.retryWithDelay(1))
+        } else {
+            print("NO RETRY............")
+          completion(.doNotRetryWithError(error))
+        }
+      }
+      
+    }
+    
+    
   struct Certificates {
     
     /*
@@ -41,9 +56,12 @@ struct NetworkClient {
       "www.wikipedia.org": PinnedCertificatesTrustEvaluator(certificates: [Certificates.wikipedia])
     ]
     
+    let retrier: RequestInterceptor
+    
   init() {
+    self.retrier = NetworkClientRetrier()
     // self.session = Session()
-    self.session = Session(serverTrustManager: ServerTrustManager(evaluators: evaluators))
+    self.session = Session(interceptor: retrier, serverTrustManager: ServerTrustManager(evaluators: evaluators))
   }
   
   static func request(_ convertible: URLRequestConvertible) -> DataRequest {
