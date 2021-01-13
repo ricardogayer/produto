@@ -57,6 +57,7 @@ class NovoProdutoViewController: UIViewController {
         
         NetworkClient.request(WikiRouter.download)
             .responseData { response in
+            print(response.debugDescription)
             switch response.result {
             case .success(let image):
                 print("Download log wikipedia realizado")
@@ -66,7 +67,11 @@ class NovoProdutoViewController: UIViewController {
                 }
                 self.imageView.image = imagem
             case .failure(let error):
-                print(error)
+                if (error.isServerTrustEvaluationError) {
+                    ErrorPresenter.showError(message: "Ocorreu uma tentativa de ataque man-in-the-middle!", on: self)
+                } else {
+                    ErrorPresenter.showError(message: "Ocorreu um erro realizando o acesso a Wikipedia", on: self)
+                }
             }
         }
         

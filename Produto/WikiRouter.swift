@@ -46,10 +46,13 @@ enum WikiRouter: URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
+        
+      let header = HTTPHeader.contentType("application/json")
     
       let url = try Constants.baseURLPath.asURL()
       var request = URLRequest(url: url.appendingPathComponent(path))
       request.httpMethod = method.rawValue
+      request.headers = [header]
       request.timeoutInterval = TimeInterval(10*1000)
       return try URLEncoding.default.encode(request, with: parameters)
     }

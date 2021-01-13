@@ -42,6 +42,7 @@ struct NetworkClient {
     ]
     
   init() {
+    // self.session = Session()
     self.session = Session(serverTrustManager: ServerTrustManager(evaluators: evaluators))
   }
   

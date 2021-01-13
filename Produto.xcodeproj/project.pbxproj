@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E627C01A25AE8DF200966133 /* wikipedia.org.der in Resources */ = {isa = PBXBuildFile; fileRef = E627C01825AE8DF200966133 /* wikipedia.org.der */; };
-		E627C01B25AE8DF200966133 /* imagga.com.der in Resources */ = {isa = PBXBuildFile; fileRef = E627C01925AE8DF200966133 /* imagga.com.der */; };
 		E627C01E25AE8FAB00966133 /* WikiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E627C01D25AE8FAB00966133 /* WikiRouter.swift */; };
 		E638C53525A5E53800422B2B /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638C53425A5E53800422B2B /* ErrorPresenter.swift */; };
 		E65618E725AD19F0002A739F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65618E625AD19F0002A739F /* NetworkClient.swift */; };
@@ -27,11 +25,11 @@
 		E698277025A3E382009B8A1B /* ProdutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698276F25A3E382009B8A1B /* ProdutoTableViewController.swift */; };
 		E698277325A3F008009B8A1B /* ProdutoDetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698277225A3F008009B8A1B /* ProdutoDetalheViewController.swift */; };
 		E698277625A3FF59009B8A1B /* NovoProdutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698277525A3FF59009B8A1B /* NovoProdutoViewController.swift */; };
+		E6CCE2EE25AF376000DAF91B /* imagga.com.der in Resources */ = {isa = PBXBuildFile; fileRef = E6CCE2EC25AF376000DAF91B /* imagga.com.der */; };
+		E6CCE2EF25AF376000DAF91B /* wikipedia.org.der in Resources */ = {isa = PBXBuildFile; fileRef = E6CCE2ED25AF376000DAF91B /* wikipedia.org.der */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E627C01825AE8DF200966133 /* wikipedia.org.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = wikipedia.org.der; path = ../../../wikipedia.org.der; sourceTree = "<group>"; };
-		E627C01925AE8DF200966133 /* imagga.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = imagga.com.der; path = ../../../imagga.com.der; sourceTree = "<group>"; };
 		E627C01D25AE8FAB00966133 /* WikiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiRouter.swift; sourceTree = "<group>"; };
 		E638C53425A5E53800422B2B /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		E65618E625AD19F0002A739F /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		E698276F25A3E382009B8A1B /* ProdutoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoTableViewController.swift; sourceTree = "<group>"; };
 		E698277225A3F008009B8A1B /* ProdutoDetalheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoDetalheViewController.swift; sourceTree = "<group>"; };
 		E698277525A3FF59009B8A1B /* NovoProdutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovoProdutoViewController.swift; sourceTree = "<group>"; };
+		E6CCE2EC25AF376000DAF91B /* imagga.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = imagga.com.der; sourceTree = "<group>"; };
+		E6CCE2ED25AF376000DAF91B /* wikipedia.org.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = wikipedia.org.der; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +68,8 @@
 		E627C01325AE8D5700966133 /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
-				E627C01925AE8DF200966133 /* imagga.com.der */,
-				E627C01825AE8DF200966133 /* wikipedia.org.der */,
+				E6CCE2EC25AF376000DAF91B /* imagga.com.der */,
+				E6CCE2ED25AF376000DAF91B /* wikipedia.org.der */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -181,9 +181,9 @@
 			files = (
 				E698274E25A3DA87009B8A1B /* LaunchScreen.storyboard in Resources */,
 				E698274B25A3DA87009B8A1B /* Assets.xcassets in Resources */,
-				E627C01B25AE8DF200966133 /* imagga.com.der in Resources */,
+				E6CCE2EE25AF376000DAF91B /* imagga.com.der in Resources */,
+				E6CCE2EF25AF376000DAF91B /* wikipedia.org.der in Resources */,
 				E698274925A3DA86009B8A1B /* Main.storyboard in Resources */,
-				E627C01A25AE8DF200966133 /* wikipedia.org.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
